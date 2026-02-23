@@ -371,15 +371,13 @@ const Home = () => {
           <div className="relative overflow-hidden rounded-2xl">
             {/* Slides - 100vh on mobile so full screen; overflow-y-auto so buttons reachable */}
             <div className="relative h-[100vh] md:h-[80vh]">
-              {heroSlides.map((slide, index) => (
-                <motion.div
-                  key={index}
+                  <motion.div
                   className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-12 py-8 md:py-0 overflow-y-auto"
-                  initial={{ opacity: 0, x: index > currentSlide ? 100 : -100 }}
+                  initial={{ opacity: 0, x: 100 }}
                   animate={{
-                    opacity: index === currentSlide ? 1 : 0,
-                    x: index === currentSlide ? 0 : index > currentSlide ? 100 : -100,
-                    scale: index === currentSlide ? 1 : 0.9
+                    opacity: currentSlide === 0 ? 1 : 0,
+                    x: currentSlide === 0 ? 0 : 100,
+                    scale: currentSlide === 0 ? 1 : 0.9
                   }}
                   transition={{ duration: 0.6, ease: 'easeInOut' }}
                 >
@@ -389,47 +387,173 @@ const Home = () => {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
                   >
-                    <span className="text-gradient block">{slide.title}</span>
-                    <span className="text-gray-800 text-3xl md:text-5xl lg:text-6xl mt-2 block">
-                      {slide.subtitle}
-                    </span>
+                    <span className="text-gradient block">Techera</span>
+                    <span className="text-gray-800 text-3xl md:text-5xl lg:text-6xl mt-2 block">AI-Powered IT Solutions</span>
                   </motion.h1>
-                  
                   <motion.div
                     className="h-12 flex items-center justify-center mb-4 min-h-[3rem]"
                     initial={{ y: -10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
                   >
-                    <span className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary-600">
-                      {slide.highlight}
-                    </span>
+                    <span className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary-600">Innovation meets Expertise</span>
                   </motion.div>
-
                   <motion.p
                     className="text-base md:text-lg lg:text-xl text-gray-600 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed"
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.6, duration: 0.5 }}
                   >
-                    {slide.description}
+                    Connecting organizations with top-tier IT professionals while building innovative AI solutions that help businesses automate, optimize, and grow.
                   </motion.p>
-
                   <motion.div
                     className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center w-full max-w-sm sm:max-w-none mx-auto"
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.8, duration: 0.5 }}
                   >
-                    <Link to="/contact" className="btn-primary text-center text-sm sm:text-lg px-4 py-3 sm:px-8 sm:py-4 w-full sm:w-auto">
-                      Get Started
-                    </Link>
-                    <Link to="/services" className="btn-secondary text-center text-sm sm:text-lg px-4 py-3 sm:px-8 sm:py-4 w-full sm:w-auto">
-                      Our Services
-                    </Link>
+                    <Link to="/contact" className="btn-primary text-center text-sm sm:text-lg px-4 py-3 sm:px-8 sm:py-4 w-full sm:w-auto">Get Started</Link>
+                    <Link to="/services" className="btn-secondary text-center text-sm sm:text-lg px-4 py-3 sm:px-8 sm:py-4 w-full sm:w-auto">Our Services</Link>
                   </motion.div>
                 </motion.div>
-              ))}
+
+                <motion.div
+                  className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-12 py-8 md:py-0 overflow-y-auto"
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{
+                    opacity: currentSlide === 1 ? 1 : 0,
+                    x: currentSlide === 1 ? 0 : 100,
+                    scale: currentSlide === 1 ? 1 : 0.9
+                  }}
+                  transition={{ duration: 0.6, ease: 'easeInOut' }}
+                >
+                  <motion.h1
+                    className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4"
+                    initial={{ y: -20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                  >
+                    <span className="text-gradient block">IT Contracting Services</span>
+                    <span className="text-gray-800 text-3xl md:text-5xl lg:text-6xl mt-2 block">Expert Talent for Your Projects</span>
+                  </motion.h1>
+                  <motion.div
+                    className="h-12 flex items-center justify-center mb-4 min-h-[3rem]"
+                    initial={{ y: -10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                  >
+                    <span className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary-600">Your Trusted IT Partner</span>
+                  </motion.div>
+                  <motion.p
+                    className="text-base md:text-lg lg:text-xl text-gray-600 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed"
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.6, duration: 0.5 }}
+                  >
+                    We provide highly skilled IT professionals to support businesses across Ireland and globally. Whether you need short-term project support or long-term technical expertise, Techera delivers reliable, performance-driven talent.
+                  </motion.p>
+                  <motion.div
+                    className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center w-full max-w-sm sm:max-w-none mx-auto"
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.8, duration: 0.5 }}
+                  >
+                    <Link to="/contact" className="btn-primary text-center text-sm sm:text-lg px-4 py-3 sm:px-8 sm:py-4 w-full sm:w-auto">Get Started</Link>
+                    <Link to="/services" className="btn-secondary text-center text-sm sm:text-lg px-4 py-3 sm:px-8 sm:py-4 w-full sm:w-auto">Our Services</Link>
+                  </motion.div>
+                </motion.div>
+
+                <motion.div
+                  className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-12 py-8 md:py-0 overflow-y-auto"
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{
+                    opacity: currentSlide === 2 ? 1 : 0,
+                    x: currentSlide === 2 ? 0 : 100,
+                    scale: currentSlide === 2 ? 1 : 0.9
+                  }}
+                  transition={{ duration: 0.6, ease: 'easeInOut' }}
+                >
+                  <motion.h1
+                    className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4"
+                    initial={{ y: -20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                  >
+                    <span className="text-gradient block">AI Product Development</span>
+                    <span className="text-gray-800 text-3xl md:text-5xl lg:text-6xl mt-2 block">Intelligent Solutions for Modern Business</span>
+                  </motion.h1>
+                  <motion.div
+                    className="h-12 flex items-center justify-center mb-4 min-h-[3rem]"
+                    initial={{ y: -10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                  >
+                    <span className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary-600">Transforming Business with AI</span>
+                  </motion.div>
+                  <motion.p
+                    className="text-base md:text-lg lg:text-xl text-gray-600 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed"
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.6, duration: 0.5 }}
+                  >
+                    Techera designs and develops intelligent AI-powered products tailored to business needs. We build scalable, secure, and future-ready AI systems that give companies a competitive edge.
+                  </motion.p>
+                  <motion.div
+                    className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center w-full max-w-sm sm:max-w-none mx-auto"
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.8, duration: 0.5 }}
+                  >
+                    <Link to="/contact" className="btn-primary text-center text-sm sm:text-lg px-4 py-3 sm:px-8 sm:py-4 w-full sm:w-auto">Get Started</Link>
+                    <Link to="/services" className="btn-secondary text-center text-sm sm:text-lg px-4 py-3 sm:px-8 sm:py-4 w-full sm:w-auto">Our Services</Link>
+                  </motion.div>
+                </motion.div>
+
+                <motion.div
+                  className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-12 py-8 md:py-0 overflow-y-auto"
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{
+                    opacity: currentSlide === 3 ? 1 : 0,
+                    x: currentSlide === 3 ? 0 : 100,
+                    scale: currentSlide === 3 ? 1 : 0.9
+                  }}
+                  transition={{ duration: 0.6, ease: 'easeInOut' }}
+                >
+                  <motion.h1
+                    className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4"
+                    initial={{ y: -20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                  >
+                    <span className="text-gradient block">Global Reach, Local Expertise</span>
+                    <span className="text-gray-800 text-3xl md:text-5xl lg:text-6xl mt-2 block">Serving Businesses Worldwide</span>
+                  </motion.h1>
+                  <motion.div
+                    className="h-12 flex items-center justify-center mb-4 min-h-[3rem]"
+                    initial={{ y: -10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                  >
+                    <span className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary-600">Ireland to the World</span>
+                  </motion.div>
+                  <motion.p
+                    className="text-base md:text-lg lg:text-xl text-gray-600 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed"
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.6, duration: 0.5 }}
+                  >
+                    Based in Dublin, Ireland, we serve businesses across Ireland and globally. We can work with clients remotely or on-site, delivering world-class IT solutions with a personal touch.
+                  </motion.p>
+                  <motion.div
+                    className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center w-full max-w-sm sm:max-w-none mx-auto"
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.8, duration: 0.5 }}
+                  >
+                    <Link to="/contact" className="btn-primary text-center text-sm sm:text-lg px-4 py-3 sm:px-8 sm:py-4 w-full sm:w-auto">Get Started</Link>
+                    <Link to="/services" className="btn-secondary text-center text-sm sm:text-lg px-4 py-3 sm:px-8 sm:py-4 w-full sm:w-auto">Our Services</Link>
+                  </motion.div>
+                </motion.div>
             </div>
 
             {/* Navigation Arrows */}
@@ -450,18 +574,10 @@ const Home = () => {
 
             {/* Dots Indicator - niche (bottom) on mobile, same on desktop */}
             <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-              {heroSlides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    index === currentSlide
-                      ? 'bg-primary-600 w-8'
-                      : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
+              <button onClick={() => goToSlide(0)} className={`w-3 h-3 rounded-full transition-all ${currentSlide === 0 ? 'bg-primary-600 w-8' : 'bg-gray-300 hover:bg-gray-400'}`} aria-label="Go to slide 1" />
+              <button onClick={() => goToSlide(1)} className={`w-3 h-3 rounded-full transition-all ${currentSlide === 1 ? 'bg-primary-600 w-8' : 'bg-gray-300 hover:bg-gray-400'}`} aria-label="Go to slide 2" />
+              <button onClick={() => goToSlide(2)} className={`w-3 h-3 rounded-full transition-all ${currentSlide === 2 ? 'bg-primary-600 w-8' : 'bg-gray-300 hover:bg-gray-400'}`} aria-label="Go to slide 3" />
+              <button onClick={() => goToSlide(3)} className={`w-3 h-3 rounded-full transition-all ${currentSlide === 3 ? 'bg-primary-600 w-8' : 'bg-gray-300 hover:bg-gray-400'}`} aria-label="Go to slide 4" />
             </div>
           </div>
         </div>
@@ -481,15 +597,37 @@ const Home = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="feature-card card p-8 text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <feature.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+            <div className="feature-card card p-8 text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <FaLaptopCode className="w-8 h-8 text-white" />
               </div>
-            ))}
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">IT Contracting Services</h3>
+              <p className="text-gray-600">Connect with top-tier IT professionals - developers, engineers, and specialists for your projects.</p>
+            </div>
+
+            <div className="feature-card card p-8 text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <FaRobot className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">AI Product Development</h3>
+              <p className="text-gray-600">Build intelligent, scalable AI solutions tailored to your business needs.</p>
+            </div>
+
+            <div className="feature-card card p-8 text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <FaCloud className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Cloud Solutions</h3>
+              <p className="text-gray-600">Expert cloud engineering services for AWS, Azure, and GCP platforms.</p>
+            </div>
+
+            <div className="feature-card card p-8 text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <FaShieldAlt className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Cybersecurity</h3>
+              <p className="text-gray-600">Protect your business with comprehensive security solutions and best practices.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -722,36 +860,71 @@ const Home = () => {
                   transition={{ duration: 0.6, ease: 'easeInOut' }}
                 >
                   {/* Create pairs: show 2 at a time on desktop, 1 on mobile */}
-                  {testimonialsData.map((testimonial, index) => (
-                    <div
-                      key={index}
-                      className="w-full lg:w-1/2 flex-shrink-0 min-w-full lg:min-w-[50%]"
-                    >
+                    {testimonialsData && testimonialsData.length > 0 && (
+                    <div className="w-full lg:w-1/2 flex-shrink-0 min-w-full lg:min-w-[50%]">
                       <div className="px-3">
                         <div className="testimonial-card card p-6 md:p-8 h-full">
                           <div className="flex items-center mb-4">
-                            <img 
-                              src={testimonial.avatar} 
-                              alt={testimonial.name}
-                              className="w-14 h-14 rounded-full mr-4 border-4 border-primary-100"
-                            />
+                            <img src={testimonialsData[0].avatar} alt={testimonialsData[0].name} className="w-14 h-14 rounded-full mr-4 border-4 border-primary-100" />
                             <div>
-                              <h4 className="font-bold text-gray-900 text-base md:text-lg">{testimonial.name}</h4>
-                              <p className="text-gray-600 text-xs md:text-sm">{testimonial.role}</p>
+                              <h4 className="font-bold text-gray-900 text-base md:text-lg">{testimonialsData[0].name}</h4>
+                              <p className="text-gray-600 text-xs md:text-sm">{testimonialsData[0].role}</p>
                             </div>
                           </div>
                           <div className="flex mb-4 justify-center">
-                            {[...Array(testimonial.rating)].map((_, i) => (
+                            {[...Array(testimonialsData[0].rating)].map((_, i) => (
                               <FaStar key={i} className="w-5 h-5 md:w-6 md:h-6 text-yellow-400 mx-0.5" />
                             ))}
                           </div>
-                          <p className="text-gray-700 italic text-sm md:text-base leading-relaxed text-center">
-                            "{testimonial.text}"
-                          </p>
+                          <p className="text-gray-700 italic text-sm md:text-base leading-relaxed text-center">"{testimonialsData[0].text}"</p>
                         </div>
                       </div>
                     </div>
-                  ))}
+                  )}
+
+                  {testimonialsData && testimonialsData.length > 1 && (
+                    <div className="w-full lg:w-1/2 flex-shrink-0 min-w-full lg:min-w-[50%]">
+                      <div className="px-3">
+                        <div className="testimonial-card card p-6 md:p-8 h-full">
+                          <div className="flex items-center mb-4">
+                            <img src={testimonialsData[1].avatar} alt={testimonialsData[1].name} className="w-14 h-14 rounded-full mr-4 border-4 border-primary-100" />
+                            <div>
+                              <h4 className="font-bold text-gray-900 text-base md:text-lg">{testimonialsData[1].name}</h4>
+                              <p className="text-gray-600 text-xs md:text-sm">{testimonialsData[1].role}</p>
+                            </div>
+                          </div>
+                          <div className="flex mb-4 justify-center">
+                            {[...Array(testimonialsData[1].rating)].map((_, i) => (
+                              <FaStar key={i} className="w-5 h-5 md:w-6 md:h-6 text-yellow-400 mx-0.5" />
+                            ))}
+                          </div>
+                          <p className="text-gray-700 italic text-sm md:text-base leading-relaxed text-center">"{testimonialsData[1].text}"</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {testimonialsData && testimonialsData.length > 2 && (
+                    <div className="w-full lg:w-1/2 flex-shrink-0 min-w-full lg:min-w-[50%]">
+                      <div className="px-3">
+                        <div className="testimonial-card card p-6 md:p-8 h-full">
+                          <div className="flex items-center mb-4">
+                            <img src={testimonialsData[2].avatar} alt={testimonialsData[2].name} className="w-14 h-14 rounded-full mr-4 border-4 border-primary-100" />
+                            <div>
+                              <h4 className="font-bold text-gray-900 text-base md:text-lg">{testimonialsData[2].name}</h4>
+                              <p className="text-gray-600 text-xs md:text-sm">{testimonialsData[2].role}</p>
+                            </div>
+                          </div>
+                          <div className="flex mb-4 justify-center">
+                            {[...Array(testimonialsData[2].rating)].map((_, i) => (
+                              <FaStar key={i} className="w-5 h-5 md:w-6 md:h-6 text-yellow-400 mx-0.5" />
+                            ))}
+                          </div>
+                          <p className="text-gray-700 italic text-sm md:text-base leading-relaxed text-center">"{testimonialsData[2].text}"</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                   {/* Add first testimonial at the end for seamless loop */}
                   {testimonialsData.length > 0 && (
                     <div

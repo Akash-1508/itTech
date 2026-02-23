@@ -5,34 +5,6 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaPhone, FaEnvelope, Fa
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const footerLinks = {
-    services: [
-      { name: 'IT Contracting', path: '/services' },
-      { name: 'AI Product Development', path: '/services' },
-      { name: 'Cloud Solutions', path: '/services' },
-      { name: 'DevOps Services', path: '/services' },
-    ],
-    company: [
-      { name: 'About Us', path: '/about' },
-      { name: 'Our Team', path: '/about' },
-      { name: 'Careers', path: '/about' },
-      { name: 'Privacy Policy', path: '/contact' },
-    ],
-    support: [
-      { name: 'Contact Us', path: '/contact' },
-      { name: 'FAQ', path: '/contact' },
-      { name: 'Support', path: '/contact' },
-      { name: 'Documentation', path: '/services' },
-    ],
-  };
-
-  const socialLinks = [
-    { icon: FaFacebook, href: '#', label: 'Facebook' },
-    { icon: FaTwitter, href: '#', label: 'Twitter' },
-    { icon: FaInstagram, href: '#', label: 'Instagram' },
-    { icon: FaLinkedin, href: '#', label: 'LinkedIn' },
-  ];
-
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container-custom">
@@ -50,16 +22,34 @@ const Footer = () => {
               Connecting organizations with top-tier IT professionals while building innovative AI solutions.
             </p>
             <div className="flex space-x-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
+              <a
+                href="#"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors"
+                aria-label="Facebook"
+              >
+                <FaFacebook className="w-5 h-5" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors"
+                aria-label="Twitter"
+              >
+                <FaTwitter className="w-5 h-5" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors"
+                aria-label="Instagram"
+              >
+                <FaInstagram className="w-5 h-5" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin className="w-5 h-5" />
+              </a>
             </div>
           </div>
 
@@ -67,16 +57,38 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
-              {footerLinks.services.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="text-gray-300 hover:text-white transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link
+                  to="/services"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                >
+                  IT Contracting
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                >
+                  AI Product Development
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                >
+                  Cloud Solutions
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                >
+                  DevOps Services
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -84,16 +96,38 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="text-gray-300 hover:text-white transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link
+                  to="/about"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                >
+                  Our Team
+                </Link>
+              </li>
+              {/* <li>
+                <Link
+                  to="/about"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                >
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                >
+                  Privacy Policy
+                </Link>
+              </li> */}
             </ul>
           </div>
 
@@ -126,7 +160,7 @@ const Footer = () => {
             <p className="text-gray-400 text-sm">
               © {currentYear} Techera. All rights reserved.
             </p>
-            <div className="flex space-x-6">
+           {/* <div className="flex space-x-6">
               <Link to="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Privacy Policy
               </Link>
@@ -136,7 +170,7 @@ const Footer = () => {
               <Link to="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Cookie Policy
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

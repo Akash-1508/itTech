@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import FrontLayout from '../../../components/layout/Front';
+import { leadsAPI } from '../../../services/api';
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -11,29 +12,52 @@ const Contact = () => {
   
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
+  const SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+  const TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+  const PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
   // Initialize EmailJS
   useEffect(() => {
-    emailjs.init("Vav0KtfOxWAzXA_5t");
-  }, []);
+    if (PUBLIC_KEY) emailjs.init(PUBLIC_KEY);
+  }, [PUBLIC_KEY]);
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
 
     try {
+      if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+        alert('Email service not configured. Please set environment variables.');
+        setIsSubmitting(false);
+        return;
+      }
+
       await emailjs.send(
-        "service_hxavkbp",     // Service ID
-        "template_c2f6n6p",    // Template ID
+        SERVICE_ID,
+        TEMPLATE_ID,
         {
           from_name: data.name,
           from_email: data.email,
-          name: data.name,           
-          email: data.email,        
+          name: data.name,
+          email: data.email,
           phone: data.phone || 'Not provided',
           subject: data.subject,
           message: data.message,
         },
-        "Vav0KtfOxWAzXA_5t"    // Public Key
+        PUBLIC_KEY
       );
+
+      try {
+        await leadsAPI.submitLead({
+          name: data.name,
+          email: data.email,
+          phone: data.phone || 'Not provided',
+          subject: data.subject,
+          message: data.message,
+          submittedAt: new Date().toISOString(),
+        });
+      } catch (sheetsError) {
+        console.warn('Failed to save to Google Sheets:', sheetsError);
+      }
 
       setSubmitSuccess(true);
       reset();
@@ -232,30 +256,53 @@ const Contact = () => {
             <div className="bg-white rounded-2xl shadow-xl p-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-6">Contact Information</h2>
               <div className="space-y-6">
-                {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <info.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-gray-900 mb-2">{info.title}</h3>
-                      {info.link ? (
-                        <a 
-                          href={info.link} 
-                          className="text-primary-600 hover:text-primary-700 transition-colors"
-                        >
-                          {info.details.map((detail, detailIndex) => (
-                            <div key={detailIndex} className="text-gray-600">{detail}</div>
-                          ))}
-                        </a>
-                      ) : (
-                        info.details.map((detail, detailIndex) => (
-                          <div key={detailIndex} className="text-gray-600">{detail}</div>
-                        ))
-                      )}
-                    </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <FaPhone className="w-6 h-6 text-white" />
                   </div>
-                ))}
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900 mb-2">Phone</h3>
+                    <a href="tel:+353899829085" className="text-primary-600 hover:text-primary-700 transition-colors">
+                      <div className="text-gray-600">+353 899829085</div>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <FaEnvelope className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
+                    <a href="mailto:info@techera.ie" className="text-primary-600 hover:text-primary-700 transition-colors">
+                      <div className="text-gray-600">info@techera.ie</div>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <FaMapMarkerAlt className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900 mb-2">Address</h3>
+                    <a href="https://maps.google.com" className="text-primary-600 hover:text-primary-700 transition-colors">
+                      <div className="text-gray-600">1 Ballycoolin Rd, Ballycoolen</div>
+                      <div className="text-gray-600">Dublin, D15 AKK1, Ireland</div>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <FaClock className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900 mb-2">Business Hours</h3>
+                    <div className="text-gray-600">Mon-Fri: 9:00 AM - 6:00 PM</div>
+                    <div className="text-gray-600">Sat-Sun: Closed</div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -263,16 +310,18 @@ const Contact = () => {
             <div className="bg-white rounded-2xl shadow-xl p-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-6">Follow Us</h2>
               <div className="flex space-x-4">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform"
-                    aria-label={social.label}
-                  >
-                    <social.icon className="w-6 h-6 text-white" />
-                  </a>
-                ))}
+                <a href="#" className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform" aria-label="Facebook">
+                  <FaFacebook className="w-6 h-6 text-white" />
+                </a>
+                <a href="#" className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform" aria-label="Twitter">
+                  <FaTwitter className="w-6 h-6 text-white" />
+                </a>
+                <a href="#" className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform" aria-label="Instagram">
+                  <FaInstagram className="w-6 h-6 text-white" />
+                </a>
+                <a href="#" className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform" aria-label="LinkedIn">
+                  <FaLinkedin className="w-6 h-6 text-white" />
+                </a>
               </div>
             </div>
 
@@ -280,32 +329,80 @@ const Contact = () => {
             <div className="bg-white rounded-2xl shadow-xl p-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-6">Frequently Asked Questions</h2>
               <div className="space-y-2">
-                {faqs.map((faq, index) => (
-                  <div key={index} className="border border-gray-200 rounded-lg overflow-hidden transition-all">
-                    <button
-                      onClick={() => toggleFaq(index)}
-                      className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
-                    >
-                      <h3 className="font-semibold text-gray-900 pr-4">{faq.question}</h3>
-                      <div className="flex-shrink-0">
-                        {openFaqIndex === index ? (
-                          <FaChevronUp className="w-5 h-5 text-primary-600" />
-                        ) : (
-                          <FaChevronDown className="w-5 h-5 text-gray-400" />
-                        )}
-                      </div>
-                    </button>
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                        openFaqIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                      }`}
-                    >
-                      <div className="px-6 pb-4">
-                        <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
-                      </div>
+                <div className="border border-gray-200 rounded-lg overflow-hidden transition-all">
+                  <button
+                    onClick={() => toggleFaq(0)}
+                    className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                  >
+                    <h3 className="font-semibold text-gray-900 pr-4">What IT contracting services do you provide?</h3>
+                    <div className="flex-shrink-0">
+                      {openFaqIndex === 0 ? (
+                        <FaChevronUp className="w-5 h-5 text-primary-600" />
+                      ) : (
+                        <FaChevronDown className="w-5 h-5 text-gray-400" />
+                      )}
+                    </div>
+                  </button>
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      openFaqIndex === 0 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="px-6 pb-4">
+                      <p className="text-gray-600 leading-relaxed">We provide highly skilled IT professionals including Software Developers, AI & ML Engineers, Data Scientists, Cloud Engineers, DevOps Engineers, Cybersecurity Specialists, Business Analysts, and Project Managers.</p>
                     </div>
                   </div>
-                ))}
+                </div>
+
+                <div className="border border-gray-200 rounded-lg overflow-hidden transition-all">
+                  <button
+                    onClick={() => toggleFaq(1)}
+                    className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                  >
+                    <h3 className="font-semibold text-gray-900 pr-4">What AI products can you develop?</h3>
+                    <div className="flex-shrink-0">
+                      {openFaqIndex === 1 ? (
+                        <FaChevronUp className="w-5 h-5 text-primary-600" />
+                      ) : (
+                        <FaChevronDown className="w-5 h-5 text-gray-400" />
+                      )}
+                    </div>
+                  </button>
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      openFaqIndex === 1 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="px-6 pb-4">
+                      <p className="text-gray-600 leading-relaxed">We develop custom AI automation systems, predictive analytics platforms, AI chatbots, intelligent workflow automation, AI-based recruitment tools, business intelligence dashboards, and SaaS AI products.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="border border-gray-200 rounded-lg overflow-hidden transition-all">
+                  <button
+                    onClick={() => toggleFaq(2)}
+                    className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                  >
+                    <h3 className="font-semibold text-gray-900 pr-4">What areas do you serve?</h3>
+                    <div className="flex-shrink-0">
+                      {openFaqIndex === 2 ? (
+                        <FaChevronUp className="w-5 h-5 text-primary-600" />
+                      ) : (
+                        <FaChevronDown className="w-5 h-5 text-gray-400" />
+                      )}
+                    </div>
+                  </button>
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      openFaqIndex === 2 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="px-6 pb-4">
+                      <p className="text-gray-600 leading-relaxed">We are based in Dublin, Ireland, and serve businesses across Ireland and globally. We can work with clients remotely or on-site as needed.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

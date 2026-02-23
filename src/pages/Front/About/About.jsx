@@ -145,16 +145,38 @@ const About = () => {
       <section className="section-padding bg-gradient-to-r from-primary-600 to-secondary-600">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center text-white">
+              <div className="text-center text-white">
                 <div className="flex justify-center mb-4">
-                  <stat.icon className="w-12 h-12" />
+                  <FaHeart className="w-12 h-12" />
                 </div>
-                <div className="text-4xl md:text-5xl font-bold mb-2">{stat.number}</div>
-                <div className="text-lg">{stat.label}</div>
+                <div className="text-4xl md:text-5xl font-bold mb-2">200+</div>
+                <div className="text-lg">Active Clients</div>
               </div>
-            ))}
-          </div>
+
+              <div className="text-center text-white">
+                <div className="flex justify-center mb-4">
+                  <FaAward className="w-12 h-12" />
+                </div>
+                <div className="text-4xl md:text-5xl font-bold mb-2">500+</div>
+                <div className="text-lg">IT Professionals</div>
+              </div>
+
+              <div className="text-center text-white">
+                <div className="flex justify-center mb-4">
+                  <FaUsers className="w-12 h-12" />
+                </div>
+                <div className="text-4xl md:text-5xl font-bold mb-2">50+</div>
+                <div className="text-lg">AI Products Delivered</div>
+              </div>
+
+              <div className="text-center text-white">
+                <div className="flex justify-center mb-4">
+                  <FaStar className="w-12 h-12" />
+                </div>
+                <div className="text-4xl md:text-5xl font-bold mb-2">4.9</div>
+                <div className="text-lg">Client Rating</div>
+              </div>
+            </div>
         </div>
       </section>
 
@@ -172,19 +194,53 @@ const About = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="team-card card p-6 text-center">
-                <img 
-                  src={member.image} 
-                  alt={member.name}
-                  className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-                />
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
-                <p className="text-primary-600 font-medium mb-2">{member.role}</p>
-                <p className="text-sm text-gray-500 mb-4">{member.experience} experience</p>
-                <p className="text-gray-600 text-sm">{member.bio}</p>
-              </div>
-            ))}
+            <div className="team-card card p-6 text-center">
+              <img 
+                src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face" 
+                alt="Sarah Mitchell"
+                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+              />
+              <h3 className="text-xl font-semibold text-gray-900 mb-1">Sarah Mitchell</h3>
+              <p className="text-primary-600 font-medium mb-2">Founder & CEO</p>
+              <p className="text-sm text-gray-500 mb-4">15+ years experience</p>
+              <p className="text-gray-600 text-sm">Sarah founded Techera with a vision to revolutionize IT contracting and AI product development. Her expertise in technology and innovation has driven the company's success in Ireland and globally.</p>
+            </div>
+
+            <div className="team-card card p-6 text-center">
+              <img 
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face" 
+                alt="Michael Rodriguez"
+                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+              />
+              <h3 className="text-xl font-semibold text-gray-900 mb-1">Michael Rodriguez</h3>
+              <p className="text-primary-600 font-medium mb-2">CTO & AI Lead</p>
+              <p className="text-sm text-gray-500 mb-4">12+ years experience</p>
+              <p className="text-gray-600 text-sm">Michael specializes in AI and machine learning solutions. His technical expertise and innovative approach have helped build cutting-edge AI products for numerous businesses.</p>
+            </div>
+
+            <div className="team-card card p-6 text-center">
+              <img 
+                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face" 
+                alt="Emily Chen"
+                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+              />
+              <h3 className="text-xl font-semibold text-gray-900 mb-1">Emily Chen</h3>
+              <p className="text-primary-600 font-medium mb-2">Head of IT Contracting</p>
+              <p className="text-sm text-gray-500 mb-4">10+ years experience</p>
+              <p className="text-gray-600 text-sm">Emily leads our IT contracting division, connecting businesses with top-tier IT professionals. Her extensive network ensures we deliver the best talent for every project.</p>
+            </div>
+
+            <div className="team-card card p-6 text-center">
+              <img 
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" 
+                alt="David Thompson"
+                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+              />
+              <h3 className="text-xl font-semibold text-gray-900 mb-1">David Thompson</h3>
+              <p className="text-primary-600 font-medium mb-2">Operations Director</p>
+              <p className="text-sm text-gray-500 mb-4">10+ years experience</p>
+              <p className="text-gray-600 text-sm">David ensures smooth operations and exceptional service delivery. He coordinates our projects and maintains our high standards for quality and client satisfaction.</p>
+            </div>
           </div>
         </div>
       </section>

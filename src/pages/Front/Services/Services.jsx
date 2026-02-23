@@ -140,35 +140,54 @@ const Services = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <div key={index} className="service-card card p-8">
-                <div className="flex items-start space-x-4">
-                  <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <service.icon className="w-8 h-8 text-white" />
+            <div className="service-card card p-8">
+              <div className="flex items-start space-x-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <FaLaptopCode className="w-8 h-8 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-2">IT Contracting Services</h3>
+                  <p className="text-gray-600 mb-4">We provide highly skilled IT professionals to support businesses across Ireland and globally. Whether you need short-term project support or long-term technical expertise, Techera delivers reliable, performance-driven talent.</p>
+                  <div className="mb-4">
+                    <ul className="space-y-2">
+                      <li className="flex items-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />Software Developers (Frontend, Backend, Full Stack)</li>
+                      <li className="flex items-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />AI & Machine Learning Engineers</li>
+                      <li className="flex items-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />Data Analysts & Data Scientists</li>
+                      <li className="flex items-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />Cloud Engineers (AWS, Azure, GCP)</li>
+                      <li className="flex items-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />DevOps Engineers</li>
+                      <li className="flex items-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />Cybersecurity Specialists</li>
+                      <li className="flex items-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />Business Analysts</li>
+                      <li className="flex items-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />Project Managers</li>
+                    </ul>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-2">{service.title}</h3>
-                    <p className="text-gray-600 mb-4">{service.description}</p>
-                    <div className="mb-4">
-                      <ul className="space-y-2">
-                        {service.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-center text-gray-700">
-                            <FaCheck className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <Link
-                      to="/contact"
-                      className="inline-flex items-center justify-center mt-2 px-6 py-3 rounded-lg bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-semibold text-base hover:from-primary-700 hover:to-secondary-700 transition-all duration-300 shadow-md hover:shadow-lg"
-                    >
-                      Contact for pricing
-                    </Link>
-                  </div>
+                  <Link to="/contact" className="inline-flex items-center justify-center mt-2 px-6 py-3 rounded-lg bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-semibold text-base hover:from-primary-700 hover:to-secondary-700 transition-all duration-300 shadow-md hover:shadow-lg">Contact for pricing</Link>
                 </div>
               </div>
-            ))}
+            </div>
+
+            <div className="service-card card p-8">
+              <div className="flex items-start space-x-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <FaRobot className="w-8 h-8 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-2">AI-Based Product Development</h3>
+                  <p className="text-gray-600 mb-4">Techera designs and develops intelligent AI-powered products tailored to business needs. We build scalable, secure, and future-ready AI systems that give companies a competitive edge.</p>
+                  <div className="mb-4">
+                    <ul className="space-y-2">
+                      <li className="flex items-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />Custom AI Automation Systems</li>
+                      <li className="flex items-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />Predictive Analytics Platforms</li>
+                      <li className="flex items-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />AI Chatbots & Conversational AI</li>
+                      <li className="flex items-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />Intelligent Workflow Automation</li>
+                      <li className="flex items-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />AI-based Recruitment & HR Tools</li>
+                      <li className="flex items-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />Business Intelligence Dashboards</li>
+                      <li className="flex items-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />SaaS AI Products</li>
+                    </ul>
+                  </div>
+                  <Link to="/contact" className="inline-flex items-center justify-center mt-2 px-6 py-3 rounded-lg bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-semibold text-base hover:from-primary-700 hover:to-secondary-700 transition-all duration-300 shadow-md hover:shadow-lg">Contact for pricing</Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -186,43 +205,56 @@ const Services = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {serviceTypes.map((option, index) => (
-              <div key={index} className={`pricing-card card p-8 text-center ${
-                option.type === 'Long-term' ? 'ring-2 ring-primary-500 relative' : ''
-              }`}>
-                {option.type === 'Long-term' && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-primary-500 text-white px-4 py-1 rounded-full text-sm font-medium">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-                <div className="mb-6">
-                  <div className="text-4xl font-bold text-gray-900 mb-2">{option.type}</div>
-                  <div className="text-2xl font-semibold text-primary-600 mb-2">{option.title}</div>
-                  <div className="text-3xl font-bold text-gray-900">{option.price}</div>
-                </div>
-                <p className="text-gray-600 mb-6">{option.description}</p>
-                <ul className="space-y-3 mb-8">
-                  {option.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center justify-center text-gray-700">
-                      <FaCheck className="w-4 h-4 text-green-500 mr-2" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Link 
-                  to="/contact" 
-                  className={`w-full py-3 px-6 rounded-lg font-medium transition-colors ${
-                    option.type === 'Long-term' 
-                      ? 'bg-primary-600 hover:bg-primary-700 text-white' 
-                      : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
-                  }`}
-                >
-                  Get Started
-                </Link>
+            <div className={`pricing-card card p-8 text-center ${'Short-term' === 'Long-term' ? 'ring-2 ring-primary-500 relative' : ''}`}>
+              <div className="mb-6">
+                <div className="text-4xl font-bold text-gray-900 mb-2">Short-term</div>
+                <div className="text-2xl font-semibold text-primary-600 mb-2">Project-Based Contracting</div>
+                <div className="text-3xl font-bold text-gray-900">Flexible</div>
               </div>
-            ))}
+              <p className="text-gray-600 mb-6">Short-term project support with expert IT professionals.</p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center justify-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-2" />Project-specific expertise</li>
+                <li className="flex items-center justify-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-2" />Flexible engagement</li>
+                <li className="flex items-center justify-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-2" />Quick onboarding</li>
+                <li className="flex items-center justify-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-2" />Quality deliverables</li>
+              </ul>
+              <Link to="/contact" className={`w-full py-3 px-6 rounded-lg font-medium transition-colors ${'Short-term' === 'Long-term' ? 'bg-primary-600 hover:bg-primary-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-900'}`}>Get Started</Link>
+            </div>
+
+            <div className={`pricing-card card p-8 text-center ${'Long-term' === 'Long-term' ? 'ring-2 ring-primary-500 relative' : ''}`}>
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span className="bg-primary-500 text-white px-4 py-1 rounded-full text-sm font-medium">Most Popular</span>
+              </div>
+              <div className="mb-6">
+                <div className="text-4xl font-bold text-gray-900 mb-2">Long-term</div>
+                <div className="text-2xl font-semibold text-primary-600 mb-2">Extended Contracting</div>
+                <div className="text-3xl font-bold text-gray-900">Flexible</div>
+              </div>
+              <p className="text-gray-600 mb-6">Long-term technical expertise for ongoing projects and support.</p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center justify-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-2" />Dedicated resources</li>
+                <li className="flex items-center justify-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-2" />Long-term partnership</li>
+                <li className="flex items-center justify-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-2" />Continuous support</li>
+                <li className="flex items-center justify-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-2" />Scalable solutions</li>
+              </ul>
+              <Link to="/contact" className={`w-full py-3 px-6 rounded-lg font-medium transition-colors ${'Long-term' === 'Long-term' ? 'bg-primary-600 hover:bg-primary-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-900'}`}>Get Started</Link>
+            </div>
+
+            <div className={`pricing-card card p-8 text-center ${'AI Products' === 'Long-term' ? 'ring-2 ring-primary-500 relative' : ''}`}>
+              <div className="mb-6">
+                <div className="text-4xl font-bold text-gray-900 mb-2">AI Products</div>
+                <div className="text-2xl font-semibold text-primary-600 mb-2">AI Product Development</div>
+                <div className="text-3xl font-bold text-gray-900">Custom</div>
+              </div>
+              <p className="text-gray-600 mb-6">End-to-end AI product development from concept to deployment.</p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center justify-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-2" />Custom AI solutions</li>
+                <li className="flex items-center justify-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-2" />Scalable architecture</li>
+                <li className="flex items-center justify-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-2" />Full lifecycle support</li>
+                <li className="flex items-center justify-center text-gray-700"><FaCheck className="w-4 h-4 text-green-500 mr-2" />Innovation-driven</li>
+              </ul>
+              <Link to="/contact" className={`w-full py-3 px-6 rounded-lg font-medium transition-colors ${'AI Products' === 'Long-term' ? 'bg-primary-600 hover:bg-primary-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-900'}`}>Get Started</Link>
+            </div>
           </div>
         </div>
       </section>
@@ -240,36 +272,37 @@ const Services = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              {
-                step: '01',
-                title: 'Consultation',
-                description: 'Discuss your IT needs and project requirements with our team.'
-              },
-              {
-                step: '02',
-                title: 'Resource Matching',
-                description: 'We match you with the perfect IT professionals or start your AI product development.'
-              },
-              {
-                step: '03',
-                title: 'Project Execution',
-                description: 'Our team works with precision and expertise to deliver quality solutions.'
-              },
-              {
-                step: '04',
-                title: 'Ongoing Support',
-                description: 'We provide continuous support and ensure your success.'
-              }
-            ].map((process, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-xl">{process.step}</span>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{process.title}</h3>
-                <p className="text-gray-600">{process.description}</p>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white font-bold text-xl">01</span>
               </div>
-            ))}
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Consultation</h3>
+              <p className="text-gray-600">Discuss your IT needs and project requirements with our team.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white font-bold text-xl">02</span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Resource Matching</h3>
+              <p className="text-gray-600">We match you with the perfect IT professionals or start your AI product development.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white font-bold text-xl">03</span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Project Execution</h3>
+              <p className="text-gray-600">Our team works with precision and expertise to deliver quality solutions.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white font-bold text-xl">04</span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Ongoing Support</h3>
+              <p className="text-gray-600">We provide continuous support and ensure your success.</p>
+            </div>
           </div>
         </div>
       </section>

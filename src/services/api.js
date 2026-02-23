@@ -201,7 +201,9 @@ export const websocketAPI = {
   // Get WebSocket status
   getStatus: () => api.get('/websocket'),
 };
-
+export const leadsAPI = {
+  submitLead: (formData) => api.post('/leads/submit', formData),
+};
 // Health check API
 export const healthAPI = {
   // Check server health
