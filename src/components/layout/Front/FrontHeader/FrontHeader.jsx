@@ -100,7 +100,7 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="border-t border-gray-200 pt-2 mt-2">
-                <Link
+               {/* <Link
                   to="/customers/auth"
                   onClick={() => setIsOpen(false)}
                   className="flex items-center space-x-2 px-3 py-2 text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md"
@@ -115,7 +115,7 @@ const Navbar = () => {
                 >
                   <FaUser className="w-4 h-4" />
                   <span>Vendor Login</span>
-                </Link>
+                </Link> */}
                 <Link
                   to="/contact"
                   onClick={() => setIsOpen(false)}
