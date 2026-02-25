@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useQuery } from '@tanstack/react-query';
-import { FaStar, FaUsers, FaRobot, FaLaptopCode, FaCloud, FaCogs, FaShieldAlt, FaChartLine, FaTasks, FaCheckCircle, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaStar, FaUsers, FaRobot, FaLaptopCode, FaCloud, FaCogs, FaShieldAlt, FaChartLine, FaTasks, FaCheckCircle, FaChevronLeft, FaChevronRight, FaDatabase } from 'react-icons/fa';
 import FrontLayout from '../../../components/layout/Front';
 
 // Register ScrollTrigger plugin
@@ -596,21 +596,29 @@ const Home = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="feature-card card p-8 text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                <FaLaptopCode className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">IT Contracting Services</h3>
-              <p className="text-gray-600">Connect with top-tier IT professionals - developers, engineers, and specialists for your projects.</p>
-            </div>
-
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             <div className="feature-card card p-8 text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <FaRobot className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">AI Product Development</h3>
               <p className="text-gray-600">Build intelligent, scalable AI solutions tailored to your business needs.</p>
+            </div>
+
+            <div className="feature-card card p-8 text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <FaDatabase className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Database Solutions</h3>
+              <p className="text-gray-600">Robust database design, optimization, and management for scalable data infrastructure.</p>
+            </div>
+
+            <div className="feature-card card p-8 text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <FaLaptopCode className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">IT Contracting Services</h3>
+              <p className="text-gray-600">Connect with top-tier IT professionals - developers, engineers, and specialists for your projects.</p>
             </div>
 
             <div className="feature-card card p-8 text-center">
@@ -647,86 +655,7 @@ const Home = () => {
 
           {/* Main Services with Feature Cards */}
           <div className="space-y-16">
-            {/* 1. IT Contracting Services */}
-            <div className="bg-gradient-to-br from-primary-50 to-white rounded-3xl p-8 md:p-12">
-              {/* Main Service Card */}
-              <motion.div 
-                className="main-service-card mb-12 bg-white rounded-2xl shadow-xl p-8 border border-gray-200"
-                whileHover={{ y: -5, scale: 1.01 }} 
-                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              >
-                <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-                  <div className="service-icon w-20 h-20 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-xl flex-shrink-0">
-                    <FaLaptopCode className="w-10 h-10 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                      IT Contracting Services
-                    </h3>
-                    <p className="text-lg leading-relaxed text-gray-600">
-                      We provide highly skilled IT professionals to support businesses across Ireland and globally. Whether you need short-term project support or long-term technical expertise, Techera delivers reliable, performance-driven talent.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Feature Cards Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {[
-                  { icon: FaLaptopCode, title: 'Software Developers', description: 'Frontend, Backend, and Full Stack developers to build scalable applications and systems.', gradient: 'from-primary-500 to-primary-600' },
-                  { icon: FaRobot, title: 'AI & ML Engineers', description: 'Expert AI and Machine Learning engineers to develop intelligent solutions.', gradient: 'from-secondary-500 to-secondary-600' },
-                  { icon: FaChartLine, title: 'Data Scientists', description: 'Data Analysts and Data Scientists to extract insights and build predictive analytics.', gradient: 'from-accent-500 to-accent-600' },
-                  { icon: FaCloud, title: 'Cloud Engineers', description: 'AWS, Azure, and GCP specialists to design and manage scalable cloud infrastructure.', gradient: 'from-primary-500 to-secondary-500' },
-                  { icon: FaCogs, title: 'DevOps Engineers', description: 'Streamline deployment, CI/CD pipelines, and infrastructure automation.', gradient: 'from-secondary-500 to-accent-500' },
-                  { icon: FaShieldAlt, title: 'Cybersecurity Specialists', description: 'Protect your business with comprehensive security solutions and threat management.', gradient: 'from-primary-500 to-primary-600' },
-                  { icon: FaUsers, title: 'Business Analysts', description: 'Analyze business requirements and bridge the gap between stakeholders and technical teams.', gradient: 'from-accent-500 to-accent-600' },
-                  { icon: FaTasks, title: 'Project Managers', description: 'Experienced project managers to lead and deliver IT projects on time and within budget.', gradient: 'from-secondary-500 to-secondary-600' }
-                ].map((feature, index) => {
-                  // Map gradient to color for hover fill
-                  const getHoverColor = (gradient) => {
-                    if (gradient.includes('primary-500')) return 'bg-primary-500';
-                    if (gradient.includes('secondary-500')) return 'bg-secondary-500';
-                    if (gradient.includes('accent-500')) return 'bg-accent-500';
-                    return 'bg-primary-500';
-                  };
-                  
-                  return (
-                    <motion.div
-                      key={index}
-                      className="feature-service-card group relative overflow-hidden rounded-2xl bg-white shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-all duration-300"
-                      whileHover={{ y: -5, scale: 1.02 }}
-                      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                    >
-                      {/* Hover Fill Overlay - expands from top-right */}
-                      <div className={`absolute top-0 right-0 w-20 h-20 ${getHoverColor(feature.gradient)} rounded-bl-full opacity-60 group-hover:w-full group-hover:h-full group-hover:rounded-2xl group-hover:opacity-10 transition-all duration-500 ease-in-out`} />
-                      
-                      {/* Decorative Background */}
-                      <div className="absolute top-0 right-0 w-20 h-20 bg-primary-100 rounded-bl-full opacity-60 group-hover:opacity-0 transition-opacity duration-500" />
-                      <div className="absolute bottom-0 left-0 w-16 h-16 bg-primary-50 rounded-tr-full opacity-40 group-hover:opacity-0 transition-opacity duration-500" />
-                      
-                      <div className="relative z-10">
-                        {/* Feature Icon */}
-                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                          <feature.icon className="w-6 h-6 text-white" />
-                        </div>
-                        
-                        {/* Feature Title */}
-                        <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors duration-300">
-                          {feature.title}
-                        </h4>
-                        
-                        {/* Feature Description */}
-                        <p className="text-sm text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                          {feature.description}
-                        </p>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* 2. AI-Based Product Development */}
+            {/* 1. AI-Based Product Development */}
             <div className="bg-gradient-to-br from-secondary-50 to-white rounded-3xl p-8 md:p-12">
               {/* Main Service Card */}
               <motion.div 
@@ -808,6 +737,338 @@ const Home = () => {
                 <Link 
                   to="/services" 
                   className="inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-semibold hover:from-primary-700 hover:to-secondary-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  View All Services
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+
+            {/* 2. IT Contracting Services */}
+            <div className="bg-gradient-to-br from-primary-50 to-white rounded-3xl p-8 md:p-12">
+              {/* Main Service Card */}
+              <motion.div 
+                className="main-service-card mb-12 bg-white rounded-2xl shadow-xl p-8 border border-gray-200"
+                whileHover={{ y: -5, scale: 1.01 }} 
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              >
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+                  <div className="service-icon w-20 h-20 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-xl flex-shrink-0">
+                    <FaLaptopCode className="w-10 h-10 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                      IT Contracting Services
+                    </h3>
+                    <p className="text-lg leading-relaxed text-gray-600">
+                      We provide highly skilled IT professionals to support businesses across Ireland and globally. Whether you need short-term project support or long-term technical expertise, Techera delivers reliable, performance-driven talent.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Feature Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  { icon: FaLaptopCode, title: 'Software Developers', description: 'Frontend, Backend, and Full Stack developers to build scalable applications and systems.', gradient: 'from-primary-500 to-primary-600' },
+                  { icon: FaRobot, title: 'AI & ML Engineers', description: 'Expert AI and Machine Learning engineers to develop intelligent solutions.', gradient: 'from-secondary-500 to-secondary-600' },
+                  { icon: FaChartLine, title: 'Data Scientists', description: 'Data Analysts and Data Scientists to extract insights and build predictive analytics.', gradient: 'from-accent-500 to-accent-600' },
+                  { icon: FaCloud, title: 'Cloud Engineers', description: 'AWS, Azure, and GCP specialists to design and manage scalable cloud infrastructure.', gradient: 'from-primary-500 to-secondary-500' },
+                  { icon: FaCogs, title: 'DevOps Engineers', description: 'Streamline deployment, CI/CD pipelines, and infrastructure automation.', gradient: 'from-secondary-500 to-accent-500' },
+                  { icon: FaShieldAlt, title: 'Cybersecurity Specialists', description: 'Protect your business with comprehensive security solutions and threat management.', gradient: 'from-primary-500 to-primary-600' },
+                  { icon: FaUsers, title: 'Business Analysts', description: 'Analyze business requirements and bridge the gap between stakeholders and technical teams.', gradient: 'from-accent-500 to-accent-600' },
+                  { icon: FaTasks, title: 'Project Managers', description: 'Experienced project managers to lead and deliver IT projects on time and within budget.', gradient: 'from-secondary-500 to-secondary-600' }
+                ].map((feature, index) => {
+                  // Map gradient to color for hover fill
+                  const getHoverColor = (gradient) => {
+                    if (gradient.includes('primary-500')) return 'bg-primary-500';
+                    if (gradient.includes('secondary-500')) return 'bg-secondary-500';
+                    if (gradient.includes('accent-500')) return 'bg-accent-500';
+                    return 'bg-primary-500';
+                  };
+                  
+                  return (
+                    <motion.div
+                      key={index}
+                      className="feature-service-card group relative overflow-hidden rounded-2xl bg-white shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-all duration-300"
+                      whileHover={{ y: -5, scale: 1.02 }}
+                      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                    >
+                      {/* Hover Fill Overlay - expands from top-right */}
+                      <div className={`absolute top-0 right-0 w-20 h-20 ${getHoverColor(feature.gradient)} rounded-bl-full opacity-60 group-hover:w-full group-hover:h-full group-hover:rounded-2xl group-hover:opacity-10 transition-all duration-500 ease-in-out`} />
+                      
+                      {/* Decorative Background */}
+                      <div className="absolute top-0 right-0 w-20 h-20 bg-primary-100 rounded-bl-full opacity-60 group-hover:opacity-0 transition-opacity duration-500" />
+                      <div className="absolute bottom-0 left-0 w-16 h-16 bg-primary-50 rounded-tr-full opacity-40 group-hover:opacity-0 transition-opacity duration-500" />
+                      
+                      <div className="relative z-10">
+                        {/* Feature Icon */}
+                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                          <feature.icon className="w-6 h-6 text-white" />
+                        </div>
+                        
+                        {/* Feature Title */}
+                        <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors duration-300">
+                          {feature.title}
+                        </h4>
+                        
+                        {/* Feature Description */}
+                        <p className="text-sm text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                          {feature.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* CTA Button */}
+              <div className="mt-8 text-center">
+                <Link 
+                  to="/services" 
+                  className="inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-semibold hover:from-primary-700 hover:to-secondary-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  View All Services
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+
+            {/* 3. Database Projects */}
+            <div className="bg-gradient-to-br from-blue-50 to-white rounded-3xl p-8 md:p-12">
+              {/* Main Service Card */}
+              <motion.div 
+                className="main-service-card mb-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl shadow-2xl p-8"
+                whileHover={{ y: -5, scale: 1.01 }} 
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              >
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+                  <div className="service-icon w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shadow-xl border border-white/30 flex-shrink-0">
+                    <FaDatabase className="w-10 h-10 text-white" />
+                  </div>
+                  <div className="flex-1 text-white">
+                    <h3 className="text-3xl font-bold mb-4">
+                      Database Projects
+                    </h3>
+                    <p className="text-lg leading-relaxed text-white/90">
+                      Expert database design, optimization, and management solutions. We build robust, scalable data infrastructures tailored to your business needs with high performance and reliability.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Feature Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {[
+                  { icon: FaDatabase, title: 'Database Design & Architecture', description: 'Custom database design and architecture for optimal performance and scalability.', gradient: 'from-blue-500 to-blue-600' },
+                  { icon: FaCogs, title: 'Database Optimization', description: 'Performance tuning and optimization to maximize database efficiency.', gradient: 'from-blue-600 to-blue-700' },
+                  { icon: FaChartLine, title: 'Data Migration & Integration', description: 'Seamless data migration and integration across multiple systems.', gradient: 'from-blue-500 to-blue-600' },
+                  { icon: FaShieldAlt, title: 'Database Security & Backup', description: 'Comprehensive security protocols and disaster recovery solutions.', gradient: 'from-blue-600 to-blue-700' },
+                  { icon: FaUsers, title: 'Database Administration', description: 'Professional database management and administration services.', gradient: 'from-blue-500 to-blue-600' },
+                  { icon: FaCheckCircle, title: 'Data Quality & Validation', description: 'Ensure data integrity and maintain high-quality data standards.', gradient: 'from-blue-600 to-blue-700' },
+                  { icon: FaChartLine, title: 'Analytics & Reporting', description: 'Advanced analytics and custom reporting solutions for data-driven decisions.', gradient: 'from-blue-500 to-blue-600' }
+                ].map((feature, index) => {
+                  const getHoverColor = (gradient) => {
+                    if (gradient.includes('blue-500') || gradient.includes('blue-600')) return 'bg-blue-500';
+                    return 'bg-blue-500';
+                  };
+                  
+                  return (
+                    <motion.div
+                      key={index}
+                      className="feature-service-card group relative overflow-hidden rounded-2xl bg-white shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-all duration-300"
+                      whileHover={{ y: -5, scale: 1.02 }}
+                      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                    >
+                      <div className={`absolute top-0 right-0 w-20 h-20 ${getHoverColor(feature.gradient)} rounded-bl-full opacity-60 group-hover:w-full group-hover:h-full group-hover:rounded-2xl group-hover:opacity-10 transition-all duration-500 ease-in-out`} />
+                      <div className="absolute top-0 right-0 w-20 h-20 bg-blue-100 rounded-bl-full opacity-60 group-hover:opacity-0 transition-opacity duration-500" />
+                      <div className="absolute bottom-0 left-0 w-16 h-16 bg-blue-50 rounded-tr-full opacity-40 group-hover:opacity-0 transition-opacity duration-500" />
+                      
+                      <div className="relative z-10">
+                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                          <feature.icon className="w-6 h-6 text-white" />
+                        </div>
+                        <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors duration-300">
+                          {feature.title}
+                        </h4>
+                        <p className="text-sm text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                          {feature.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* CTA Button */}
+              <div className="mt-8 text-center">
+                <Link 
+                  to="/services" 
+                  className="inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  View All Services
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+
+            {/* 4. Cloud Solutions */}
+            <div className="bg-gradient-to-br from-cyan-50 to-white rounded-3xl p-8 md:p-12">
+              {/* Main Service Card */}
+              <motion.div 
+                className="main-service-card mb-12 bg-gradient-to-br from-cyan-600 to-cyan-700 rounded-2xl shadow-2xl p-8"
+                whileHover={{ y: -5, scale: 1.01 }} 
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              >
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+                  <div className="service-icon w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shadow-xl border border-white/30 flex-shrink-0">
+                    <FaCloud className="w-10 h-10 text-white" />
+                  </div>
+                  <div className="flex-1 text-white">
+                    <h3 className="text-3xl font-bold mb-4">
+                      Cloud Solutions
+                    </h3>
+                    <p className="text-lg leading-relaxed text-white/90">
+                      Expert cloud engineering services across AWS, Azure, and GCP. We design, deploy, and manage cloud infrastructure for optimal performance, security, and cost efficiency.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Feature Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {[
+                  { icon: FaCloud, title: 'AWS Solutions', description: 'Comprehensive AWS services including EC2, S3, RDS, Lambda, and more.', gradient: 'from-cyan-500 to-cyan-600' },
+                  { icon: FaCloud, title: 'Azure Cloud Services', description: 'Azure expertise for virtual machines, databases, and enterprise applications.', gradient: 'from-cyan-600 to-cyan-700' },
+                  { icon: FaCloud, title: 'Google Cloud Platform', description: 'GCP services for analytics, machine learning, and app development.', gradient: 'from-cyan-500 to-cyan-600' },
+                  { icon: FaCogs, title: 'Cloud Migration', description: 'Seamless migration of on-premise systems to cloud platforms.', gradient: 'from-cyan-600 to-cyan-700' },
+                  { icon: FaChartLine, title: 'Cloud Cost Optimization', description: 'Optimize cloud spending and maximize ROI on cloud investments.', gradient: 'from-cyan-500 to-cyan-600' },
+                  { icon: FaShieldAlt, title: 'Cloud Security & Compliance', description: 'Secure cloud infrastructure with compliance and security best practices.', gradient: 'from-cyan-600 to-cyan-700' },
+                  { icon: FaUsers, title: 'Cloud DevOps', description: 'CI/CD pipelines and infrastructure automation for cloud environments.', gradient: 'from-cyan-500 to-cyan-600' }
+                ].map((feature, index) => {
+                  const getHoverColor = (gradient) => {
+                    if (gradient.includes('cyan-500') || gradient.includes('cyan-600')) return 'bg-cyan-500';
+                    return 'bg-cyan-500';
+                  };
+                  
+                  return (
+                    <motion.div
+                      key={index}
+                      className="feature-service-card group relative overflow-hidden rounded-2xl bg-white shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-all duration-300"
+                      whileHover={{ y: -5, scale: 1.02 }}
+                      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                    >
+                      <div className={`absolute top-0 right-0 w-20 h-20 ${getHoverColor(feature.gradient)} rounded-bl-full opacity-60 group-hover:w-full group-hover:h-full group-hover:rounded-2xl group-hover:opacity-10 transition-all duration-500 ease-in-out`} />
+                      <div className="absolute top-0 right-0 w-20 h-20 bg-cyan-100 rounded-bl-full opacity-60 group-hover:opacity-0 transition-opacity duration-500" />
+                      <div className="absolute bottom-0 left-0 w-16 h-16 bg-cyan-50 rounded-tr-full opacity-40 group-hover:opacity-0 transition-opacity duration-500" />
+                      
+                      <div className="relative z-10">
+                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                          <feature.icon className="w-6 h-6 text-white" />
+                        </div>
+                        <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors duration-300">
+                          {feature.title}
+                        </h4>
+                        <p className="text-sm text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                          {feature.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* CTA Button */}
+              <div className="mt-8 text-center">
+                <Link 
+                  to="/services" 
+                  className="inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r from-cyan-600 to-cyan-700 text-white font-semibold hover:from-cyan-700 hover:to-cyan-800 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  View All Services
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+
+            {/* 5. Cybersecurity */}
+            <div className="bg-gradient-to-br from-red-50 to-white rounded-3xl p-8 md:p-12">
+              {/* Main Service Card */}
+              <motion.div 
+                className="main-service-card mb-12 bg-gradient-to-br from-red-600 to-red-700 rounded-2xl shadow-2xl p-8"
+                whileHover={{ y: -5, scale: 1.01 }} 
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              >
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+                  <div className="service-icon w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shadow-xl border border-white/30 flex-shrink-0">
+                    <FaShieldAlt className="w-10 h-10 text-white" />
+                  </div>
+                  <div className="flex-1 text-white">
+                    <h3 className="text-3xl font-bold mb-4">
+                      Cybersecurity Solutions
+                    </h3>
+                    <p className="text-lg leading-relaxed text-white/90">
+                      Comprehensive cybersecurity solutions to protect your business from threats. We provide security assessments, threat detection, and incident response to safeguard your digital assets.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Feature Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {[
+                  { icon: FaShieldAlt, title: 'Security Assessment & Audits', description: 'Comprehensive security audits and vulnerability assessments.', gradient: 'from-red-500 to-red-600' },
+                  { icon: FaCogs, title: 'Threat Detection & Response', description: 'Advanced threat detection and rapid incident response systems.', gradient: 'from-red-600 to-red-700' },
+                  { icon: FaChartLine, title: 'Penetration Testing', description: 'Professional penetration testing to identify security weaknesses.', gradient: 'from-red-500 to-red-600' },
+                  { icon: FaUsers, title: 'Security Awareness Training', description: 'Employee security training and awareness programs.', gradient: 'from-red-600 to-red-700' },
+                  { icon: FaCheckCircle, title: 'Compliance & Governance', description: 'GDPR, ISO, HIPAA, and other compliance management services.', gradient: 'from-red-500 to-red-600' },
+                  { icon: FaCloud, title: 'Cloud Security', description: 'Secure cloud infrastructure and data protection solutions.', gradient: 'from-red-600 to-red-700' },
+                  { icon: FaDatabase, title: 'Data Protection & Encryption', description: 'Advanced encryption and data protection strategies.', gradient: 'from-red-500 to-red-600' }
+                ].map((feature, index) => {
+                  const getHoverColor = (gradient) => {
+                    if (gradient.includes('red-500') || gradient.includes('red-600')) return 'bg-red-500';
+                    return 'bg-red-500';
+                  };
+                  
+                  return (
+                    <motion.div
+                      key={index}
+                      className="feature-service-card group relative overflow-hidden rounded-2xl bg-white shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-all duration-300"
+                      whileHover={{ y: -5, scale: 1.02 }}
+                      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                    >
+                      <div className={`absolute top-0 right-0 w-20 h-20 ${getHoverColor(feature.gradient)} rounded-bl-full opacity-60 group-hover:w-full group-hover:h-full group-hover:rounded-2xl group-hover:opacity-10 transition-all duration-500 ease-in-out`} />
+                      <div className="absolute top-0 right-0 w-20 h-20 bg-red-100 rounded-bl-full opacity-60 group-hover:opacity-0 transition-opacity duration-500" />
+                      <div className="absolute bottom-0 left-0 w-16 h-16 bg-red-50 rounded-tr-full opacity-40 group-hover:opacity-0 transition-opacity duration-500" />
+                      
+                      <div className="relative z-10">
+                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                          <feature.icon className="w-6 h-6 text-white" />
+                        </div>
+                        <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors duration-300">
+                          {feature.title}
+                        </h4>
+                        <p className="text-sm text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                          {feature.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* CTA Button */}
+              <div className="mt-8 text-center">
+                <Link 
+                  to="/services" 
+                  className="inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   View All Services
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
