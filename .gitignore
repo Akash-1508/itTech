@@ -22,12 +22,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-/tailorTouch/frontend-angular
-
-/tailorTouch/frontend/.env
-/tailorTouch/frontend/node_modules
-
-
-/tailorTouch/backend/node_modules
-/tailorTouch/backend/.env
